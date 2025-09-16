@@ -1,0 +1,1751 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pizza Hut — Top Bar</title>
+  <link rel="stylesheet" href="topbar.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Performance & Accessibility</title>
+
+  <!-- Preload the LCP hero image (responsive) -->
+  <link
+    rel="preload"
+    as="image"
+    imagesrcset="
+      images/perf/hero-640.avif 640w,
+      images/perf/hero-960.avif 960w,
+      images/perf/hero-1280.avif 1280w"
+    imagesizes="(max-width: 800px) 92vw, (max-width: 1024px) 80vw, 960px">
+  <!-- Preload critical font (optional, use font-display: swap) -->
+  <!-- <link rel="preload" as="font" href="/fonts/inter-var.woff2" type="font/woff2" crossorigin> -->
+  <link rel="stylesheet" href="perf.css" />
+
+  
+
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="topbar__inner">
+      <a class="brand" href="/" aria-label="Pizza Hut Home">
+        <img
+          class="brand__logo"
+          src="images/14594-NPQJ9W.jpg"
+          srcset="
+            images/14594-NPQJ9W.jpg 120w,
+            images/14594-NPQJ9W.jpg 200w,
+            images/14594-NPQJ9W.jpg 300w"
+          sizes="(max-width: 640px) 120px, (max-width: 1024px) 160px, 200px"
+          alt="Pizza Hut Logo" width="160" height="48" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="login.html">Login/Register</a>
+        <a class="nav__link" href="#deals">Deals</a>
+        <a class="nav__link" href="#order">Order</a>
+        <a class="nav__link" href="#reserve">Reserve</a>
+        <a class="nav__link" href="#locations">Locations</a>
+      </nav>
+
+      <div class="actions">
+        <form class="search" role="search" aria-label="Site search">
+          <input class="search__input" type="search" placeholder="Search pizzas..." aria-label="Search pizzas" />
+          <button class="search__btn" type="submit" aria-label="Search">🔎</button>
+        </form>
+        <a class="btn btn--primary" href="#order">Order Now</a>
+
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="hamburger__bar"></span>
+          <span class="hamburger__bar"></span>
+          <span class="hamburger__bar"></span>
+
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile" hidden>
+      <a href="#menu" class="mobile__link">Menu</a>
+      <a href="#deals" class="mobile__link">Deals</a>
+      <a href="#order" class="mobile__link">Order</a>
+      <a href="#reserve" class="mobile__link">Reserve</a>
+      <a href="#locations" class="mobile__link">Locations</a>
+    </div>
+  </header>
+
+  <script>
+    const btn = document.querySelector('.hamburger');
+    const drawer = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      drawer.hidden = expanded;
+    });
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 900px)').matches) {
+        drawer.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <h1 id="hero-title" class="hero__title">
+        Oven‑Hot Pizzas, Delivered Fast
+      </h1>
+      <p class="hero__subtitle">
+        Hand‑tossed crusts, bold sauces, and melty cheese. Order in seconds and track delivery live. 
+      </p>
+
+      <div class="hero__ctas">
+        <a class="btn btn--primary" href="#order">Order Now</a>
+        <a class="btn btn--ghost" href="#deals">View Deals</a>
+      </div>
+
+      <!-- Optional supporting image; remove if using only background -->
+      <figure class="hero__figure">
+        <img
+          class="hero__image"
+          src="images/hero-images.jpg"
+          srcset="
+            images/hero-images.jpg 480w,
+            images/hero-images.jpg 640w,
+            images/hero-images.jpg 960w,
+            images/hero-images.jpg 1280w"
+          sizes="(max-width: 800px) 88vw, (max-width: 1024px) 800px, 560px"
+          alt="Pepperoni pizza fresh out of the oven"
+          width="800" height="560"
+          loading="eager" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+
+
+  <section class="deals" aria-labelledby="deals-title">
+    <div class="deals__header">
+      <h2 id="deals-title" class="deals__title">Featured Deals</h2>
+      <p class="deals__sub">Limited-time combos crafted for sharing.</p>
+    </div>
+
+    <div class="deals__grid">
+      <!-- Card 1 -->
+      <article class="deal" aria-label="2-Medium Combo">
+        <div class="deal__media">
+          <picture>
+            <source type="images/istockphoto-1349560402-1024x1024.jpg" srcset="
+              images/istockphoto-1349560402-1024x1024.jpg 400w,
+              images/istockphoto-1349560402-1024x1024.jpg 640w,
+              images/istockphoto-1349560402-1024x1024.jpg 960w">
+            <source type="image/webp" srcset="
+              images/istockphoto-1349560402-1024x1024.jpg 400w,
+              images/istockphoto-1349560402-1024x1024.jpg 640w,
+              images/istockphoto-1349560402-1024x1024.jpg 960w">
+            <img
+              src="images/istockphoto-1349560402-1024x1024.jpg"
+              srcset="
+                images/istockphoto-1349560402-1024x1024.jpg 400w,
+                images/istockphoto-1349560402-1024x1024.jpg 640w,
+                images/istockphoto-1349560402-1024x1024.jpg 960w"
+              sizes="(max-width: 600px) 92vw, (max-width: 1024px) 44vw, (max-width: 1400px) 30vw, 320px"
+              alt="Two medium pepperoni pizzas with garlic bread"
+              class="deal__img"
+              loading="lazy"
+              decoding="async">
+          </picture>
+        </div>
+        <div class="deal__body">
+          <h3 class="deal__name">2‑Medium Combo</h3>
+          <p class="deal__desc">Pick any 2 medium pizzas + garlic bread.</p>
+          <div class="deal__meta">
+            <span class="deal__price">₹599</span>
+            <span class="deal__tag">Save 25%</span>
+          </div>
+          <div class="deal__actions">
+            <a href="#add" class="btn btn--primary">Add to Cart</a>
+            <button class="btn btn--ghost">Customize</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="deal" aria-label="Family Feast">
+        <div class="deal__media">
+          <picture>
+            <source type="image/avif" srcset="
+              images/istockphoto-1456350579-1024x1024.jpg 400w,
+              images/istockphoto-1456350579-1024x1024.jpg 640w,
+              images/istockphoto-1456350579-1024x1024.jpg 960w">
+            <source type="image/webp" srcset="
+              images/istockphoto-1456350579-1024x1024.jpg 400w,
+              images/istockphoto-1456350579-1024x1024.jpg 640w,
+              images/istockphoto-1456350579-1024x1024.jpg 960w">
+            <img
+              src="images/istockphoto-1456350579-1024x1024.jpg"
+              srcset="
+                images/istockphoto-1456350579-1024x1024.jpg 400w,
+                images/istockphoto-1456350579-1024x1024.jpg 640w,
+                images/istockphoto-1456350579-1024x1024.jpg 960w"
+              sizes="(max-width: 600px) 92vw, (max-width: 1024px) 44vw, (max-width: 1400px) 30vw, 320px"
+              alt="Large pizza, pasta bowl, and soft drinks"
+              class="deal__img"
+              loading="lazy"
+              decoding="async">
+          </picture>
+        </div>
+        <div class="deal__body">
+          <h3 class="deal__name">Family Feast</h3>
+          <p class="deal__desc">1 large pizza, 1 pasta, 4 drinks.</p>
+          <div class="deal__meta">
+            <span class="deal__price">₹999</span>
+            <span class="deal__tag">Best Value</span>
+          </div>
+          <div class="deal__actions">
+            <a href="#add" class="btn btn--primary">Add to Cart</a>
+            <button class="btn btn--ghost">Customize</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="deal" aria-label="Lunch Saver">
+        <div class="deal__media">
+          <picture>
+            <source type="image/avif" srcset="
+              images/istockphoto-1442417585-1024x1024.jpg 400w,
+              images/istockphoto-1442417585-1024x1024.jpg 640w,
+              images/istockphoto-1442417585-1024x1024.jpg 960w">
+            <source type="image/webp" srcset="
+              images/istockphoto-1442417585-1024x1024.jpg 400w,
+              images/istockphoto-1442417585-1024x1024.jpg 640w,
+              images/istockphoto-1442417585-1024x1024.jpg 960w">
+            <img
+              src="images/istockphoto-1442417585-1024x1024.jpg"
+              srcset="
+                images/istockphoto-1442417585-1024x1024.jpg 400w,
+                images/istockphoto-1442417585-1024x1024.jpg 640w,
+                images/istockphoto-1442417585-1024x1024.jpg 960w"
+              sizes="(max-width: 600px) 92vw, (max-width: 1024px) 44vw, (max-width: 1400px) 30vw, 320px"
+              alt="Personal pizza with fries and drink"
+              class="deal__img"
+              loading="lazy"
+              decoding="async">
+          </picture>
+        </div>
+        <div class="deal__body">
+          <h3 class="deal__name">Lunch Saver</h3>
+          <p class="deal__desc">Personal pizza + fries + drink.</p>
+          <div class="deal__meta">
+            <span class="deal__price">₹249</span>
+            <span class="deal__tag">Weekdays</span>
+          </div>
+          <div class="deal__actions">
+            <a href="#add" class="btn btn--primary">Add to Cart</a>
+            <button class="btn btn--ghost">Customize</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+<section class="builder" aria-labelledby="builder-title">
+    <div class="builder__header">
+      <h2 id="builder-title" class="builder__title">Build Your Pizza</h2>
+      <p class="builder__sub">Choose size, crust, sauce, cheese, and toppings.</p>
+    </div>
+
+    <form class="builder__form" action="#" method="post">
+      <!-- Stepper (optional decorative, with aria-current) -->
+      <nav class="stepper" aria-label="Pizza steps">
+        <ol class="stepper__list">
+          <li class="stepper__item" aria-current="step"><span>1</span> Size</li>
+          <li class="stepper__item"><span>2</span> Crust</li>
+          <li class="stepper__item"><span>3</span> Sauce</li>
+          <li class="stepper__item"><span>4</span> Cheese</li>
+          <li class="stepper__item"><span>5</span> Toppings</li>
+        </ol>
+      </nav>
+
+      <!-- Size (single select) -->
+      <fieldset class="group">
+        <legend class="group__legend">1. Choose Size</legend>
+        <div class="options options--grid">
+          <label class="card">
+            <input type="radio" name="size" value="small" required />
+            <div class="card__inner">
+              <div class="card__media">
+                <picture>
+                  <source type="image/avif" srcset="images/food-3245765_1280.jpg 240w, images/food-3245765_1280.jpg 360w">
+                  <source type="image/webp" srcset="images/food-3245765_1280.jpg 240w, images/food-3245765_1280.jpg 360w">
+                  <img src="images/food-3245765_1280.jpg" srcset="images/food-3245765_1280.jpg 240w, images/food-3245765_1280.jpg 360w"
+                       sizes="(max-width: 600px) 40vw, 240px" alt="Small 8-inch pizza" loading="lazy" decoding="async" />
+                </picture>
+              </div>
+              <div class="card__text">
+                <span class="card__title">Small</span>
+                <span class="card__sub">8"</span>
+              </div>
+            </div>
+          </label>
+
+          <label class="card">
+            <input type="radio" name="size" value="medium" />
+            <div class="card__inner">
+              <div class="card__media">
+                <picture>
+                  <source type="image/avif" srcset="images/pizza-5501065_1280.jpg 240w, images/pizza-5501065_1280.jpg 360w">
+                  <source type="image/webp" srcset="images/pizza-5501065_1280.jpg 240w, images/pizza-5501065_1280.jpg 360w">
+                  <img src="images/pizza-5501065_1280.jpg" srcset="images/pizza-5501065_1280.jpg 240w, images/pizza-5501065_1280.jpg 360w"
+                       sizes="(max-width: 600px) 40vw, 240px" alt="Medium 10-inch pizza" loading="lazy" decoding="async" />
+                </picture>
+              </div>
+              <div class="card__text">
+                <span class="card__title">Medium</span>
+                <span class="card__sub">10"</span>
+              </div>
+            </div>
+          </label>
+
+          <label class="card">
+            <input type="radio" name="size" value="large" />
+            <div class="card__inner">
+              <div class="card__media">
+                <picture>
+                  <source type="image/avif" srcset="images/pizza-634967_1280.jpg 240w, images/pizza-634967_1280.jpg 360w">
+                  <source type="image/webp" srcset="images/pizza-634967_1280.jpg 240w, images/pizza-634967_1280.jpg 360w">
+                  <img src="images/pizza-634967_1280.jpg" srcset="images/pizza-634967_1280.jpg 240w, images/pizza-634967_1280.jpg 360w"
+                       sizes="(max-width: 600px) 40vw, 240px" alt="Large 12-inch pizza" loading="lazy" decoding="async" />
+                </picture>
+              </div>
+              <div class="card__text">
+                <span class="card__title">Large</span>
+                <span class="card__sub">12"</span>
+              </div>
+            </div>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Crust (single select) -->
+      <fieldset class="group">
+        <legend class="group__legend">2. Choose Crust</legend>
+        <div class="options options--grid">
+          <label class="chip">
+            <input type="radio" name="crust" value="thin" required />
+            <span class="chip__label">Thin</span>
+          </label>
+          <label class="chip">
+            <input type="radio" name="crust" value="pan" />
+            <span class="chip__label">Pan</span>
+          </label>
+          <label class="chip">
+            <input type="radio" name="crust" value="stuffed" />
+            <span class="chip__label">Stuffed</span>
+          </label>
+          <label class="chip">
+            <input type="radio" name="crust" value="glutenfree" />
+            <span class="chip__label">Gluten‑Free</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Sauce (single select) -->
+      <fieldset class="group">
+        <legend class="group__legend">3. Choose Sauce</legend>
+        <div class="options options--grid">
+          <label class="chip"><input type="radio" name="sauce" value="tomato" required /><span class="chip__label">Tomato</span></label>
+          <label class="chip"><input type="radio" name="sauce" value="bbq" /><span class="chip__label">BBQ</span></label>
+          <label class="chip"><input type="radio" name="sauce" value="white" /><span class="chip__label">White</span></label>
+          <label class="chip"><input type="radio" name="sauce" value="pesto" /><span class="chip__label">Pesto</span></label>
+        </div>
+      </fieldset>
+
+      <!-- Cheese (single select) -->
+      <fieldset class="group">
+        <legend class="group__legend">4. Choose Cheese</legend>
+        <div class="options options--grid">
+          <label class="chip"><input type="radio" name="cheese" value="regular" required /><span class="chip__label">Regular</span></label>
+          <label class="chip"><input type="radio" name="cheese" value="extra" /><span class="chip__label">Extra</span></label>
+          <label class="chip"><input type="radio" name="cheese" value="vegan" /><span class="chip__label">Vegan</span></label>
+          <label class="chip"><input type="radio" name="cheese" value="none" /><span class="chip__label">No Cheese</span></label>
+        </div>
+      </fieldset>
+
+      <!-- Toppings (multi select) -->
+      <fieldset class="group">
+        <legend class="group__legend">5. Choose Toppings</legend>
+        <div class="options options--grid options--toppings">
+          <label class="toggle">
+            <input type="checkbox" name="toppings" value="pepperoni" />
+            <span class="toggle__inner">
+              <span class="toggle__img">
+                <img src="images/paperroni.jpg"
+                     srcset="images/paperroni.jpg 160w, images/paperroni.jpg 240w"
+                     sizes="(max-width:600px) 33vw, 160px"
+                     alt="Pepperoni" loading="lazy" decoding="async" />
+              </span>
+              <span class="toggle__label">Pepperoni</span>
+            </span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" name="toppings" value="mushroom" />
+            <span class="toggle__inner">
+              <span class="toggle__img">
+                <img src="images/mushroom.jpg"
+                     srcset="images/mushroom.jpg 160w, images/mushroom.jpg 240w"
+                     sizes="(max-width:600px) 33vw, 160px"
+                     alt="Mushroom" loading="lazy" decoding="async" />
+              </span>
+              <span class="toggle__label">Mushroom</span>
+            </span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" name="toppings" value="onion" />
+            <span class="toggle__inner">
+              <span class="toggle__img">
+                <img src="images/onion.jpg"
+                     srcset="images/onion.jpg 160w, images/onion.jpg 240w"
+                     sizes="(max-width:600px) 33vw, 160px"
+                     alt="Onion" loading="lazy" decoding="async" />
+              </span>
+              <span class="toggle__label">Onion</span>
+            </span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" name="toppings" value="olive" />
+            <span class="toggle__inner">
+              <span class="toggle__img">
+                <img src="images/olives.jpg"
+                     srcset="images/olives.jpg 160w, images/olives.jpg 240w"
+                     sizes="(max-width:600px) 33vw, 160px"
+                     alt="Black olives" loading="lazy" decoding="async" />
+              </span>
+              <span class="toggle__label">Olives</span>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Summary and CTA -->
+      <div class="summary">
+        <div class="summary__price">Total: <strong>₹599</strong></div>
+        <div class="summary__actions">
+          <button type="submit" class="btn btn--primary">Add to Cart</button>
+          <button type="button" class="btn btn--ghost">Reset</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+
+  <section class="highlights" aria-labelledby="highlights-title">
+    <div class="highlights__header">
+      <h2 id="highlights-title" class="highlights__title">Menu Highlights</h2>
+      <p class="highlights__sub">Fan‑favorite pizzas and sides picked by our chefs.</p>
+    </div>
+
+    <ul class="cards" role="list">
+      <li class="card">
+        <a class="card__media" href="#pepperoni" aria-label="Pepperoni Supreme">
+          <picture>
+            <source type="image/avif" srcset="
+              images/peperoni super.jpg 400w,
+              images/peperoni super.jpg 640w,
+              images/peperoni super.jpg 960w">
+            <source type="image/webp" srcset="
+              images/peperoni super.jpg 400w,
+              images/peperoni super.jpg 640w,
+              images/peperoni super.jpg 960w">
+            <img
+              src="images/peperoni super.jpg"
+              srcset="
+                images/peperoni super.jpg 400w,
+                images/peperoni super.jpg 640w,
+                images/peperoni super.jpg 960w"
+              sizes="(max-width: 600px) 92vw, (max-width: 1024px) 44vw, (max-width: 1400px) 30vw, 320px"
+              alt="Pepperoni Supreme pizza with extra cheese"
+              loading="lazy" decoding="async" />
+          </picture>
+        </a>
+        <div class="card__body">
+          <h3 class="card__title"><a href="#pepperoni">Pepperoni Supreme</a></h3>
+          <p class="card__desc">Double pepperoni, mozzarella, signature tomato sauce.</p>
+          <div class="card__meta">
+            <span class="card__price">₹349</span>
+            <span class="badge">Spicy</span>
+          </div>
+          <div class="card__actions">
+            <a class="btn btn--primary" href="#add">Add</a>
+            <a class="btn btn--ghost" href="#customize">Customize</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="card">
+        <a class="card__media" href="#veggie-delight" aria-label="Veggie Delight">
+          <picture>
+            <source type="image/avif" srcset="
+              images/veggie delight.jpg 400w,
+              images/veggie delight.jpg 640w,
+              images/veggie delight.jpg 960w">
+            <source type="image/webp" srcset="
+              images/veggie delight.jpg 400w,
+              images/veggie delight.jpg 640w,
+              images/veggie delight.jpg 960w">
+            <img
+              src="images/veggie delight.jpg"
+              srcset="
+                images/veggie delight.jpg 400w,
+                images/veggie delight.jpg 640w,
+                images/veggie delight.jpg 960w"
+              sizes="(max-width: 600px) 92vw, (max-width: 1024px) 44vw, (max-width: 1400px) 30vw, 320px"
+              alt="Veggie Delight pizza with onions, peppers, and olives"
+              loading="lazy" decoding="async" />
+          </picture>
+        </a>
+        <div class="card__body">
+          <h3 class="card__title"><a href="#veggie-delight">Veggie Delight</a></h3>
+          <p class="card__desc">Onions, bell peppers, olives, sweet corn, fresh herbs.</p>
+          <div class="card__meta">
+            <span class="card__price">₹329</span>
+            <span class="badge badge--green">Veg</span>
+          </div>
+          <div class="card__actions">
+            <a class="btn btn--primary" href="#add">Add</a>
+            <a class="btn btn--ghost" href="#customize">Customize</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="card">
+        <a class="card__media" href="#garlic-bread" aria-label="Garlic Breadsticks">
+          <picture>
+            <source type="image/avif" srcset="
+               400w,
+              images/garlic breadstics.jpg 640w,
+              images/garlic breadstics.jpg 960w">
+            <source type="image/webp" srcset="
+              images/garlic breadstics.jpg 400w,
+              images/garlic breadstics.jpg 640w,
+              images/garlic breadstics.jpg 960w">
+            <img
+              src="images/garlic breadstics.jpg"
+              srcset="
+                images/garlic breadstics.jpg 400w,
+                images/garlic breadstics.jpg 640w,
+                images/garlic breadstics.jpg 960w"
+              sizes="(max-width: 600px) 92vw, (max-width: 1024px) 44vw, (max-width: 1400px) 30vw, 320px"
+              alt="Garlic breadsticks with parmesan and dip"
+              loading="lazy" decoding="async" />
+          </picture>
+        </a>
+        <div class="card__body">
+          <h3 className="card__title"><a href="#garlic-bread">Garlic Breadsticks</a></h3>
+          <p class="card__desc">Toasty, buttery, and herby breadsticks with dip.</p>
+          <div class="card__meta">
+            <span class="card__price">₹149</span>
+            <span class="badge">Add‑on</span>
+          </div>
+          <div class="card__actions">
+            <a class="btn btn--primary" href="#add">Add</a>
+            <a class="btn btn--ghost" href="#customize">Customize</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+
+  <section class="reserve" aria-labelledby="reserve-title">
+    <div class="reserve__header">
+      <h2 id="reserve-title" class="reserve__title">Reserve a Table</h2>
+      <p class="reserve__sub">Book dine‑in in seconds. Instant confirmation via SMS or email.</p>
+    </div>
+
+    <div class="reserve__grid">
+      <!-- Form -->
+      <form class="form" action="#" method="post" novalidate>
+        <fieldset class="form__group">
+          <legend class="form__legend">Party & time</legend>
+
+          <div class="field">
+            <label for="party">Party size</label>
+            <select id="party" name="party" required>
+              <option value="">Select</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="when">Date & time</label>
+            <input id="when" name="when" type="datetime-local" required
+                   min="2025-08-01T08:00" max="2026-12-31T23:00" />
+            <small class="help">Open hours: 10:00–23:00. For large parties, call us.</small>
+          </div>
+        </fieldset>
+
+        <fieldset class="form__group">
+          <legend class="form__legend">Contact</legend>
+
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email (optional)</label>
+            <input id="email" name="email" type="email" autocomplete="email" />
+          </div>
+
+          <div class="field">
+            <label for="note">Special requests (optional)</label>
+            <textarea id="note" name="note" rows="3" placeholder="Allergies, high chair, occasion…"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form__actions">
+          <button type="submit" class="btn btn--primary">Reserve now</button>
+          <button type="reset" class="btn btn--ghost">Clear</button>
+        </div>
+
+        <p class="policy">By reserving, consent is given to be contacted about the booking. No spam.</p>
+      </form>
+
+      <!-- Map/Photo panel -->
+      <aside class="panel" aria-label="Location and ambience">
+        <div class="panel__media">
+          <picture>
+            <source type="image/avif" srcset="
+              images/pizza-5501065_1280.jpg 640w,
+              images/pizza-5501065_1280.jpg 960w,
+              images/pizza-5501065_1280.jpg 1280w">
+            <source type="image/webp" srcset="
+              images/pizza-5501065_1280.jpg 640w,
+              images/pizza-5501065_1280.jpg 960w,
+              images/pizza-5501065_1280.jpg 1280w">
+            <img
+              src="images/pizza-5501065_1280.jpg"
+              srcset="
+                images/pizza-5501065_1280.jpg 640w,
+                images/pizza-5501065_1280.jpg 960w,
+                images/pizza-5501065_1280.jpg 1280w"
+              sizes="(max-width: 900px) 100vw, 520px"
+              alt="Cozy dine‑in seating with warm lighting"
+              loading="lazy" decoding="async" />
+          </picture>
+        </div>
+
+        <div class="panel__content">
+          <h3 class="panel__title">Find us</h3>
+          <p class="panel__text">123 Main Street, Downtown. Parking and wheelchair access available.</p>
+          <div class="panel__thumb">
+            <picture>
+              <source type="image/avif" srcset="
+                images/food-3245765_1280.jpg 480w,
+                images/food-3245765_1280.jpg 640w">
+              <source type="image/webp" srcset="
+                images/food-3245765_1280.jpg 480w,
+                images/food-3245765_1280.jpg 640w">
+              <img
+                src="images/food-3245765_1280.jpg"
+                srcset="images/food-3245765_1280.jpg 480w, images/food-3245765_1280.jpg 640w"
+                sizes="(max-width: 900px) 100vw, 480px"
+                alt="Map thumbnail to the restaurant"
+                loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div class="panel__links">
+            <a class="btn btn--ghost" href="https://www.google.com/maps" target="_blank" rel="noopener">Open in Maps</a>
+            <a class="btn btn--ghost" href="tel:+918445675573">Call</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <script>
+    // Basic client-side validation feedback example
+    document.querySelector('.form')?.addEventListener('submit', (e) => {
+      const form = e.currentTarget;
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        form.querySelectorAll(':invalid')?.focus();
+      }
+    });
+  </script>
+
+  <section class="social" aria-labelledby="social-title">
+    <div class="social__header">
+      <h2 id="social-title" class="social__title">Loved by pizza fans</h2>
+      <p class="social__sub">Recent reviews from happy diners and delivery regulars.</p>
+    </div>
+
+    <ul class="testimonials" role="list">
+      <!-- Card 1 -->
+      <li class="tcard">
+        <div class="tcard__head">
+          <div class="avatar">
+            <picture>
+              <source type="image/avif" srcset="images/foodie incrent.jpg 80w, images/foodie incrent.jpg 120w">
+              <source type="image/webp" srcset="images/foodie incrent.jpg 80w, images/foodie incrent.jpg 120w">
+              <img
+                src="images/foodie incrent.jpg"
+                srcset="images/foodie incrent.jpg 80w, images/foodie incrent.jpg 120w"
+                sizes="(max-width: 600px) 64px, 80px"
+                alt="foodie incrent"
+                class="avatar__img"
+                loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div class="meta">
+            <div class="meta__name">Ana Sharma <span class="badge">Verified</span></div>
+            <div class="meta__role">Food Blogger</div>
+          </div>
+        </div>
+
+        <div class="rating" aria-label="Rated 5 out of 5">
+          <span class="sr-only">5 out of 5</span>
+          <!-- 5 filled stars -->
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+        </div>
+
+        <blockquote class="tcard__quote">
+          “Crispiest crust and the BBQ sauce slaps. Delivery was early!”
+        </blockquote>
+
+        <div class="tcard__footer">
+          <span class="stamp">Order #48291</span>
+          <time class="time" dateTime="2025-08-10">10 Aug 2025</time>
+        </div>
+      </li>
+
+      <!-- Card 2 -->
+      <li class="tcard">
+        <div class="tcard__head">
+          <div class="avatar">
+            <picture>
+              <source type="image/avif" srcset="images/richa tivari.jpeg 80w,  images/richa tivari.jpeg 120w">
+              <source type="image/webp" srcset="images/richa tivari.jpeg 80w, images/richa tivari.jpeg 120w">
+              <img
+                src="images/richa tivari.jpeg"
+                srcset="images/richa tivari.jpeg 80w, images/richa tivari.jpeg 120w"
+                sizes="(max-width: 600px) 64px, 80px"
+                alt="Richa Tiwari"
+                class="avatar__img"
+                loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div class="meta">
+            <div class="meta__name">Rahul Mehta <span class="badge">Verified</span></div>
+            <div class="meta__role">Regular Diner</div>
+          </div>
+        </div>
+
+        <div class="rating" aria-label="Rated 4.5 out of 5">
+          <span class="sr-only">4.5 out of 5</span>
+          <!-- 4 filled + 1 half -->
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star star--half"></svg>
+        </div>
+
+        <blockquote class="tcard__quote">
+          “Great veg options. Staff set up a high chair without asking—thoughtful!”
+        </blockquote>
+
+        <div class="tcard__footer">
+          <span class="stamp">Table #C12</span>
+          <time class="time" dateTime="2025-08-02">2 Aug 2025</time>
+        </div>
+      </li>
+
+      <!-- Card 3 -->
+      <li class="tcard">
+        <div class="tcard__head">
+          <div class="avatar">
+            <picture>
+              <source type="image/avif" srcset="images/lee wang.jpeg 80w, images/lee wang.jpeg 120w">
+              <source type="image/webp" srcset="images/lee wang.jpeg 80w, images/lee wang.jpeg 120w">
+              <img
+                src="images/lee wang.jpeg"
+                srcset="images/lee wang.jpeg 80w, images/lee wang.jpeg 120w"
+                sizes="(max-width: 600px) 64px, 80px"
+                alt="Lee Wang"
+                class="avatar__img"
+                loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div class="meta">
+            <div class="meta__name">Lee Wang <span class="badge">Verified</span></div>
+            <div class="meta__role">Takeaway Regular</div>
+          </div>
+        </div>
+
+        <div class="rating" aria-label="Rated 5 out of 5">
+          <span class="sr-only">5 out of 5</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="star"><path d="M12 2l3.09 6.3 6.96 1.02-5.03 4.9 1.19 6.94L12 17.77 5.79 21.16 6.98 14.22 1.95 9.32l6.96-1.02L12 2z"/></svg>
+        </div>
+
+        <blockquote class="tcard__quote">
+          “Tracking shows accurate ETAs. Still hot when it arrives.”
+        </blockquote>
+
+        <div class="tcard__footer">
+          <span class="stamp">Order #47732</span>
+          <time class="time" dateTime="2025-07-26">26 Jul 2025</time>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+
+  <section class="locs" aria-labelledby="locs-title">
+    <div class="locs__header">
+      <h2 id="locs-title" class="locs__title">Locations & access</h2>
+      <p class="locs__sub">Find nearby stores for pickup or dine‑in. Parking and accessibility info included.</p>
+    </div>
+
+    <!-- Search / Filters -->
+    <form class="locs__filters" role="search" aria-label="Find a store">
+      <label class="sr-only" for="q">Search locations</label>
+      <input id="q" name="q" type="search" placeholder="Search by area or pin…" autocomplete="postal-code" />
+      <label class="sr-only" for="service">Service</label>
+      <select id="service" name="service">
+        <option value="">All services</option>
+        <option value="pickup">Pickup</option>
+        <option value="delivery">Delivery</option>
+        <option value="dinein">Dine‑in</option>
+      </select>
+      <button type="submit" class="btn btn--primary">Search</button>
+    </form>
+
+    <div class="locs__grid">
+      <!-- Locations list -->
+      <ul class="stores" aria-label="Store results">
+        <li class="store">
+          <h3 class="store__name">Downtown Central</h3>
+          <address class="store__addr">
+            123 Main Street, Downtown<br>
+            <a href="tel:+910000000001" class="store__tel">+91 00000 00001</a>
+          </address>
+          <div class="store__meta">
+            <span class="badge">Pickup</span>
+            <span class="badge">Delivery</span>
+            <span class="badge badge--green">Wheelchair access</span>
+            <span class="badge">Parking</span>
+          </div>
+          <div class="store__hours">Today: 10:00–23:00</div>
+          <div class="store__actions">
+            <a class="btn btn--ghost" href=" " target="_blank" rel="noopener">Open in Maps</a>
+            <a class="btn btn--primary" href="#order">Order here</a>
+          </div>
+        </li>
+
+        <li class="store">
+          <h3 class="store__name">SRK MALL</h3>
+          <address class="store__addr">
+            45 Riverside Ave, 2nd Floor<br>
+            <a href="tel:+910000000002" class="store__tel">+91 00000 00002</a>
+          </address>
+          <div class="store__meta">
+            <span class="badge">Pickup</span>
+            <span class="badge">Dine‑in</span>
+            <span class="badge">Parking</span>
+          </div>
+          <div class="store__hours">Today: 11:00–22:00</div>
+          <div class="store__actions">
+            <a class="btn btn--ghost" href=" https://www.zomato.com/agra/pizza-hut-sikandra" target="_blank" rel="noopener">Open in Maps</a>
+            <a class="btn btn--primary" href="#reserve">Reserve table</a>
+          </div>
+        </li>
+
+        <li class="store">
+          <h3 class="store__name">Tech Park</h3>
+          <address class="store__addr">
+            9 Innovation Way, Block B<br>
+            <a href="tel:+910000000003" class="store__tel">+91 00000 00003</a>
+          </address>
+          <div class="store__meta">
+            <span class="badge">Pickup</span>
+            <span class="badge">Delivery</span>
+          </div>
+          <div class="store__hours">Today: 10:00–20:00</div>
+          <div class="store__actions">
+            <a class="btn btn--ghost" href="https://stores.burgerking.in/burger-king-fast-food-restaurant-nagla-padi-agra-179274/Home" target="_blank" rel="noopener">Open in Map s</a>
+            <a class="btn btn--primary" href="#order">Order here</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Map / imagery panel -->
+      <aside class="panel" aria-label="Map and ambience">
+        <div class="panel__media">
+          <picture>
+            <source type="image/avif" srcset="images/srk map image.jpg 640w, /images/srk map image.jpg 960w, /images/srk map image.jpg 1280w">
+            <source type="image/webp" srcset="images/srk map image.jpg 640w, images/srk map image.jpg 960w, images/srk map image.jpg 1280w">
+            <img
+              src="images/srk map image.jpg"
+              srcset="/images/srk map image.jpg 640w, images/srk map image.jpg 960w, images/srk map image.jpg 1280w"
+              sizes="(max-width: 900px) 100vw, 560px"
+              alt="Map of nearby store locations"
+              loading="lazy" decoding="async" />
+          </picture>
+        </div>
+
+        <div class="panel__content">
+          <h3 class="panel__title">Access info</h3>
+          <ul class="panel__list">
+            <li>Parking available at most locations</li>
+            <li>Wheelchair access and step‑free entry</li>
+            <li>Tap‑to‑call and directions in one click</li>
+          </ul>
+          <div class="panel__photos">
+            <picture>
+              <source type="image/avif" srcset="images/srk map image.jpg 480w, images/srk map image.jpg 640w">
+              <source type="image/webp" srcset="images/srk map image.jpg 480w, images/srk map image.jpg 640w">
+              <img
+                src="images/srk parking.avif"
+                srcset="images/srk map image.jpg 480w, images/srk map image.jpg 640w"
+                sizes="(max-width: 900px) 100vw, 280px"
+                alt="Restaurant exterior with parking entrance"
+                loading="lazy" decoding="async" />
+            </picture>
+            <picture>
+              <source type="image/avif" srcset="images/srk ramp.avif 480w, images/srk ramp.avif 640w">
+              <source type="image/webp" srcset="images/srk ramp.avif 480w, images/srk ramp.avif 640w">
+              <img
+                src="images/srk ramp.avif"
+                srcset="images/srk ramp.avif 480w, images/srk ramp.avif 640w"
+                sizes="(max-width: 900px) 100vw, 280px"
+                alt="Wide, step‑free entrance with ramp"
+                loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+
+  <section class="loyalty" aria-labelledby="loyalty-title">
+    <div class="loyalty__grid">
+      <div class="loyalty__pitch">
+        <h2 id="loyalty-title" class="loyalty__title">Join Hut Rewards</h2>
+        <p class="loyalty__sub">Earn points on every order, unlock members‑only deals, and get a birthday treat.</p>
+
+        <ul class="loyalty__perks">
+          <li>₹1 = 1 point. Redeem for pizzas and sides.</li>
+          <li>Exclusive weekly coupons to save more.</li>
+          <li>Birthday freebie and early access to promos.</li>
+        </ul>
+
+        <form class="capture" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+            <small class="help">A confirmation link will be sent. Please check the inbox to activate.</small>
+          </div>
+
+          <div class="field field--row">
+            <input id="consent" name="consent" type="checkbox" required />
+            <label for="consent">I agree to receive marketing emails and confirm I’m 16+.</label>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn--primary" type="submit">Join now</button>
+            <button class="btn btn--ghost" type="reset">Clear</button>
+          </div>
+
+          <p class="policy">By joining, consent is given to receive emails. Unsubscribe anytime. A double opt‑in email will confirm sign‑up.</p>
+          <p class="status" role="status" aria-live="polite" hidden>Thanks! Check your email to confirm membership.</p>
+        </form>
+      </div>
+
+      <aside class="loyalty__art" aria-label="Rewards illustration">
+        <div class="art__media">
+          <picture>
+            <source type="image/avif" srcset="
+              images/pizza-hut-first-order-coupon.jpg 480w,
+              images/pizza-hut-first-order-coupon.jpg 640w,
+              images/pizza-hut-first-order-coupon.jpg 960w">
+            <source type="image/webp" srcset="
+              images/pizza-hut-first-order-coupon.jpg 480w,
+              images/pizza-hut-first-order-coupon.jpg 640w,
+              images/pizza-hut-first-order-coupon.jpg 960w">
+            <img
+              src="images/pizza-hut-first-order-coupon.jpg"
+              srcset="
+                images/pizza-hut-first-order-coupon.jpg 480w,
+                images/pizza-hut-first-order-coupon.jpg 640w,
+                images/pizza-hut-first-order-coupon.jpg 960w"
+              sizes="(max-width: 900px) 100vw, 520px"
+              alt="Loyalty rewards badge and coupon icons"
+              loading="lazy" decoding="async" />
+          </picture>
+        </div>
+
+        <ul class="art__badges">
+          <li>
+            <picture>
+              <source type="image/avif" srcset="images/pizza point.webp 80w, images/pizza point.webp 120w">
+              <source type="image/webp" srcset="images/pizza point.webp 80w, images/pizza point.webp 120w">
+              <img src="images/pizza point.webp" srcset="images/pizza point.webp 80w, images/pizza point.webp 120w"
+                   sizes="(max-width: 900px) 64px, 80px" alt="Points icon" class="badge__img" loading="lazy" decoding="async" />
+            </picture>
+            <span>Points</span>
+          </li>
+          <li>
+            <picture>
+              <source type="image/avif" srcset="images/coupon icon image.jpg 80w, images/coupon icon image.jpg 120w">
+              <source type="image/webp" srcset="images/coupon icon image.jpg 80w, images/coupon icon image.jpg 120w">
+              <img src="images/coupon icon image.jpg" srcset="images/coupon icon image.jpg 80w, images/coupon icon image.jpg 120w"
+                   sizes="(max-width: 900px) 64px, 80px" alt="Coupons icon" class="badge__img" loading="lazy" decoding="async" />
+            </picture>
+            <span>Coupons</span>
+          </li>
+          <li>
+            <picture>
+              <source type="image/avif" srcset="images/pizza birthday.jpg 80w, images/pizza birthday.jpg 120w">
+              <source type="image/webp" srcset="images/pizza birthday.jpg 80w, images/pizza birthday.jpg 120w">
+              <img src="images/pizza birthday.jpg" srcset="images/pizza birthday.jpg 80w, images/pizza birthday.jpg 120w"
+                   sizes="(max-width: 900px) 64px, 80px" alt="Birthday gift icon" class="badge__img" loading="lazy" decoding="async" />
+            </picture>
+            <span>Birthday</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+  <script>
+    const form = document.querySelector('.capture');
+    const status = document.querySelector('.status');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.querySelector(':invalid')?.focus();
+        return;
+      }
+      status.hidden = false;
+      status.textContent = "Thanks! Check your email to confirm membership.";
+      form.reset();
+    });
+  </script>
+
+
+<section class="brand" aria-labelledby="brand-title">
+    <div class="brand__header">
+      <h2 id="brand-title" class="brand__title">Brand & visual system</h2>
+      <p class="brand__sub">Design tokens, logo usage, palette, and typography for consistent, accessible UI.</p>
+    </div>
+
+    <!-- Design tokens -->
+    <section class="tokens" aria-labelledby="tokens-title">
+      <h3 id="tokens-title" class="sec__title">Design tokens</h3>
+      <p class="sec__desc">Semantic tokens drive colors, spacing, radii, and shadows. Dark mode values are applied via CSS variables.</p>
+
+      <div class="tokens__grid">
+        <div class="token">
+          <div class="swatch" style="--sw: var(--brand-red)"></div>
+          <div class="token__meta">
+            <div class="token__name">brand-red</div>
+            <code class="token__var">var(--brand-red)</code>
+            <div class="token__hex">#E4002B</div>
+          </div>
+        </div>
+        <div class="token">
+          <div class="swatch" style="--sw: var(--fg)"></div>
+          <div class="token__meta">
+            <div class="token__name">foreground</div>
+            <code class="token__var">var(--fg)</code>
+            <div class="token__hex">#E8ECF3</div>
+          </div>
+        </div>
+        <div class="token">
+          <div class="swatch" style="--sw: var(--bg)"></div>
+          <div class="token__meta">
+            <div class="token__name">background</div>
+            <code class="token__var">var(--bg)</code>
+            <div class="token__hex">#0B0F15</div>
+          </div>
+        </div>
+        <div class="token">
+          <div class="swatch" style="--sw: var(--muted)"></div>
+          <div class="token__meta">
+            <div class="token__name">muted</div>
+            <code class="token__var">var(--muted)</code>
+            <div class="token__hex">#A5ADBA</div>
+          </div>
+        </div>
+        <div class="token">
+          <div class="swatch" style="--sw: var(--focus)"></div>
+          <div class="token__meta">
+            <div class="token__name">focus</div>
+            <code class="token__var">var(--focus)</code>
+            <div class="token__hex">#6CA0FF</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logo usage -->
+    <section class="logo" aria-labelledby="logo-title">
+      <h3 id="logo-title" class="sec__title">Logo usage</h3>
+      <p class="sec__desc">Use the primary mark on dark or neutral backgrounds with required clear space. Do not skew, recolor, or add effects.</p>
+
+      <div class="logo__grid">
+        <figure class="logo__item">
+          <picture>
+            <source type="image/avif" srcset="images/logo/lockup-dark-160.avif 160w, images/logo/lockup-dark-240.avif 240w, images/logo/lockup-dark-320.avif 320w">
+            <source type="image/webp" srcset="images/logo/lockup-dark-160.webp 160w, images/logo/lockup-dark-240.webp 240w, images/logo/lockup-dark-320.webp 320w">
+            <img
+              src="images/logo/lockup-dark-240.png"
+              srcset="images/logo/lockup-dark-160.png 160w, images/logo/lockup-dark-240.png 240w, images/logo/lockup-dark-320.png 320w"
+              sizes="(max-width: 640px) 60vw, 240px"
+              alt="Primary logo lockup on dark"
+              width="240" height="80" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>Primary mark (dark)</figcaption>
+        </figure>
+
+        <figure class="logo__item">
+          <picture>
+            <source type="image/avif" srcset="images/logo/lockup-light-160.avif 160w, images/logo/lockup-light-240.avif 240w, images/logo/lockup-light-320.avif 320w">
+            <source type="image/webp" srcset="images/logo/lockup-light-160.webp 160w, images/logo/lockup-light-240.webp 240w, images/logo/lockup-light-320.webp 320w">
+            <img
+              src="images/logo/lockup-light-240.png"
+              srcset="images/logo/lockup-light-160.png 160w, images/logo/lockup-light-240.png 240w, images/logo/lockup-light-320.png 320w"
+              sizes="(max-width: 640px) 60vw, 240px"
+              alt="Reverse logo lockup for light backgrounds"
+              width="240" height="80" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>Reverse mark (light)</figcaption>
+        </figure>
+      </div>
+
+      <div class="do-dont">
+        <div class="do">
+          <h4>Do</h4>
+          <ul>
+            <li>Keep clear space equal to logo cap height.</li>
+            <li>Use provided assets; maintain aspect ratio.</li>
+            <li>Ensure contrast passes WCAG against background.</li>
+          </ul>
+        </div>
+        <div class="dont">
+          <h4>Don’t</h4>
+          <ul>
+            <li>Recolor the mark or add shadows/glows.</li>
+            <li>Stretch, skew, or rotate the logo.</li>
+            <li>Place on busy imagery without a solid backing.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Palette -->
+    <section class="palette" aria-labelledby="palette-title">
+      <h3 id="palette-title" class="sec__title">Color palette</h3>
+      <p class="sec__desc">Primary, neutral, and support colors for UI states. Use semantic tokens instead of hardcoded hex values.</p>
+
+      <div class="palette__grid">
+        <div class="chip" style="--c: var(--brand-red)"><span>#E4002B</span><small>Primary</small></div>
+        <div class="chip" style="--c: var(--fg)"><span>#E8ECF3</span><small>Foreground</small></div>
+        <div class="chip" style="--c: var(--muted)"><span>#A5ADBA</span><small>Muted</small></div>
+        <div class="chip" style="--c: #1F8A4C"><span>#1F8A4C</span><small>Success</small></div>
+        <div class="chip" style="--c: #FFBD59"><span>#FFBD59</span><small>Warning</small></div>
+        <div class="chip" style="--c: #C80025"><span>#C80025</span><small>Primary‑Hover</small></div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="type" aria-labelledby="type-title">
+      <h3 id="type-title" class="sec__title">Typography</h3>
+      <p class="sec__desc">Headings are bold and compact; body text is legible with generous line height. Use system fonts or Inter for clarity.</p>
+
+      <div class="type__specimens">
+        <div class="type__card">
+          <div class="t t--h1">Heading 1 — Bold, 48</div>
+          <div class="meta">font-weight: 800; letter-spacing: -0.02em</div>
+        </div>
+        <div class="type__card">
+          <div class="t t--h2">Heading 2 — Bold, 32</div>
+          <div class="meta">font-weight: 800; letter-spacing: -0.02em</div>
+        </div>
+        <div class="type__card">
+          <div class="t t--body">Body — 16/1.6. Use muted for secondary text.</div>
+          <div class="meta">font-weight: 400; line-height: 1.6</div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+  <!-- Page content here -->
+  <footer class="site-footer" aria-labelledby="footer-title">
+    <h2 id="footer-title" class="sr-only">Site footer</h2>
+
+    <div class="footer__top">
+      <div class="brand">
+        <a class="brand__link" href="/" aria-label="Home">
+          <picture>
+            <source type="image/avif" srcset="images/hero-images.jpg 160w, images/hero-images.jpg 240w, images/hero-images.jpg 320w">
+            <source type="image/webp" srcset="images/hero-images.jpg 160w, images/hero-images.jpg 240w, images/hero-images.jpg 320w">
+            <img
+              class="brand__logo"
+              src="images/hero-images.jpg"
+              srcset="images/logo/lockup-dark-160.png 160w, images/logo/lockup-dark-240.png 240w, images/logo/lockup-dark-320.png 320w"
+              sizes="(max-width: 640px) 50vw, 200px"
+              alt="Brand logo"
+              width="200" height="64" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <p class="brand__tag">Oven‑hot pizzas. Pickup, delivery, or dine‑in.</p>
+
+        <div class="social" aria-label="Social links">
+          <a class="social__link" href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/></svg>
+          </a>
+          <a class="social__link" href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="currentColor" d="M13 22v-8h3l1-4h-4V7c0-1.103.897-2 2-2h2V1h-2a5 5 0 0 0-5 5v3H8v4h2v8h3z"/></svg>
+          </a>
+          <a class="social__link" href="#" aria-label="X/Twitter">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="currentColor" d="M17.53 3H21l-7.5 8.59L22 21h-6l-4.7-5.3L5.9 21H2.4l7.9-8.98L2 3h6l4.2 4.66L17.53 3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="links" aria-label="Quick links">
+        <div class="col">
+          <h3 class="col__title">Order</h3>
+          <ul class="col__list">
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#deals">Deals</a></li>
+            <li><a href="#order">Order online</a></li>
+            <li><a href="#locations">Find a store</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3 class="col__title">Company</h3>
+          <ul class="col__list">
+            <li><a href="#about">About us</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#gift-cards">Gift cards</a></li>
+            <li><a href="#press">Press</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3 class="col__title">Support</h3>
+          <ul class="col__list">
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#faq">Help & FAQ</a></li>
+            <li><a href="#track">Track order</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <address class="contact" aria-label="Contact">
+        <h3 class="contact__title">Contact</h3>
+        <p>
+          123 Main Street, Downtown<br>
+          <a href="tel:+910000000000">+91 00000 00000</a><br>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+        </p>
+
+        <div class="storeshot">
+          <picture>
+            <source type="image/avif" srcset="images/pizza-5501065_1280.jpg 320w, images/pizza-5501065_1280.jpg 480w">
+            <source type="image/webp" srcset="images/pizza-5501065_1280.jpg 320w, images/pizza-5501065_1280.jpg 480w">
+            <img
+              src="images/pizza-5501065_1280.jpg"
+              srcset="images/restaurant/exterior-320.jpg 320w, images/restaurant/exterior-480.jpg 480w"
+              sizes="(max-width: 640px) 60vw, 280px"
+              alt="Restaurant exterior thumbnail"
+              loading="lazy" decoding="async">
+          </picture>
+        </div>
+
+        <div class="locale">
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option selected>India</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+          </select>
+        </div>
+      </address>
+    </div>
+
+    <div class="footer__bottom">
+      <ul class="legal" role="list">
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#terms">Terms</a></li>
+        <li><a href="#cookies">Cookies</a></li>
+        <li><a href="#sitemap">Sitemap</a></li>
+      </ul>
+      <p class="copy">© 2025 Pizza Brand. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="social" aria-label="Social links">
+  <a href="https://www.instagram.com/ig_vinay1/reels"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Instagram, opens in a new tab">
+    <!-- Instagram SVG icon -->
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/></svg>
+    <span class="sr-only">Instagram</span>
+  </a>
+
+  <a href="https://www.facebook.com/share/19c1H4G59s/"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Facebook, opens in a new tab">
+    <!-- Facebook SVG icon -->
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13 22v-8h3l1-4h-4V7c0-1.103.897-2 2-2h2V1h-2a5 5 0 0 0-5 5v3H8v4h2v8h3z"/></svg>
+    <span class="sr-only">Facebook</span>
+  </a>
+
+  <a href="https://twitter.com/yourhandle"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Twitter, opens in a new tab">
+    <!-- X/Twitter SVG icon -->
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M17.53 3H21l-7.5 8.59L22 21h-6l-4.7-5.3L5.9 21H2.4l7.9-8.98L2 3h6l4.2 4.66L17.53 3z"/></svg>
+    <span class="sr-only">Twitter</span>
+  </a>
+</div>
+
+section class="responsive" aria-labelledby="resp-title">
+    <header class="responsive__header">
+      <h2 id="resp-title" class="responsive__title">Mobile‑first, fluid, fast</h2>
+      <p class="responsive__sub">
+        Built with fluid Grid, content‑driven breakpoints, and responsive images for sharp visuals on every device.
+      </p>
+    </header>
+
+    <div class="demo">
+      <!-- Left: copy -->
+      <div class="demo__copy">
+        <h3 class="demo__h">Scale that fits content</h3>
+        <p class="demo__p">
+          The layout starts single‑column on phones, becomes two columns when there’s enough room, and scales type with
+          clamp() for readable lines. Breakpoints are chosen when the content needs it, not fixed devices.
+        </p>
+
+        <ul class="demo__list">
+          <li>Mobile‑first min‑width breakpoints</li>
+          <li>Fluid Grid with auto‑fit/minmax</li>
+          <li>Responsive images via srcset/sizes</li>
+          <li>Reduced motion preference respected</li>
+        </ul>
+
+        <div class="demo__badges">
+          <span class="chip">min‑width: 480px</span>
+          <span class="chip">min‑width: 768px</span>
+          <span class="chip">min‑width: 1024px</span>
+        </div>
+      </div>
+
+      <!-- Right: imagery -->
+      <figure class="demo__media">
+        <picture>
+          <source type="image/avif" srcset="
+            images/piza 12345.jpg 640w,
+            images/piza 12345.jpg 960w,
+            images/piza 12345.jpg 1280w">
+          <source type="image/webp" srcset="
+            images/piza 12345.jpg 640w,
+            images/piza 12345.jpg 960w,
+            images/piza 12345.jpg 1280w">
+          <img
+            src="images/piza 12345.jpg"
+            srcset="
+              images/piza 12345.jpg 640w,
+              images/piza 12345.jpg 960w,
+              images/piza 12345.jpg 1280w"
+            sizes="(max-width: 600px) 92vw, (max-width: 1024px) 50vw, 560px"
+            alt="Responsive layout preview with pizza imagery"
+            width="860" height="420"
+            loading="lazy" decoding="async" />
+        </picture>
+        <figcaption>Images adapt to viewport with srcset/sizes.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Cards demo: auto-fit grid -->
+    <div class="cards" role="list">
+      <article class="card" role="listitem">
+        <h4 class="card__title">Fluid grid</h4>
+        <p class="card__desc">repeat(auto-fit, minmax(220px, 1fr)) makes cards wrap nicely.</p>
+      </article>
+      <article class="card" role="listitem">
+        <h4 class="card__title">Container aware</h4>
+        <p class="card__desc">Component-level queries tune spacing and layout locally.</p>
+      </article>
+      <article class="card" role="listitem">
+        <h4 class="card__title">Tap targets</h4>
+        <p class="card__desc">At least 48px high with generous spacing for thumbs.</p>
+      </article>
+    </div>
+  </section>
+
+
+  <header class="perf-header" role="banner" aria-label="Site header">
+    <h1 class="visually-hidden">Performance and accessibility demo</h1>
+  </header>
+
+  <main class="perf" role="main" aria-labelledby="perf-title">
+    <section class="perf__intro" aria-labelledby="perf-title">
+      <h2 id="perf-title" class="perf__title">Fast, accessible, reliable</h2>
+      <p class="perf__sub">
+        Preload priority content, lazy‑load the rest, ship responsive images, and honor user accessibility preferences.
+      </p>
+
+      <!-- LCP hero image: responsive and priority-loaded -->
+      <figure class="hero">
+        <picture>
+          <source type="image/avif" srcset="
+            images/pizza 12345678.jpg 640w,
+            images/pizza 12345678.jpg 960w,
+            images/pizza 12345678.jpg 1280w">
+          <source type="image/webp" srcset="
+            images/pizza 12345678.jpg 640w,
+            images/pizza 12345678.jpg 960w,
+            images/pizza 12345678.jpg 1280w">
+          <img
+            src="images/pizza 12345678.jpg"
+            srcset="
+              images/pizza 12345678.jpg 640w,
+              images/pizza 12345678.jpg 960w,
+              images/pizza 12345678.jpg 1280w"
+            sizes="(max-width: 600px) 92vw, (max-width: 1024px) 80vw, 960px"
+            width="960" height="640"
+            alt="Fresh pizza in a hot oven"
+            decoding="async" fetchpriority="high">
+        </picture>
+        <figcaption class="visually-hidden">Hero image used for performance LCP testing.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Lazy content -->
+    <section class="perf__media" aria-labelledby="media-title">
+      <h3 id="media-title">Progressive media loading</h3>
+
+      <!-- Lazy image below the fold -->
+      <picture>
+        <source type="image/avif" srcset="
+          images/pizza 123.jpg 640w,
+          images/pizza 123.jpg 960w">
+        <source type="image/webp" srcset="
+          images/pizza 123.jpg 640w,
+          images/pizza 123.jpg 960w">
+        <img
+          class="card-img"
+          src="images/pizza 123.jpg"
+          srcset="images/pizza 123.jpg 640w, images/pizza 123.jpg 960w"
+          sizes="(max-width: 600px) 92vw, 560px"
+          alt="Close‑up of a pizza slice"
+          loading="lazy" decoding="async">
+      </picture>
+
+      <!-- Lazy iframe (map or video) -->
+      <iframe
+        class="embed"
+        title="Location map"
+        src="about:blank"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        aria-label="Map embed loads on demand">
+      </iframe>
+    </section>
+
+    <!-- Accessibility checklist sample -->
+    <section class="a11y" aria-labelledby="a11y-title">
+      <h3 id="a11y-title">Accessibility essentials</h3>
+      <ul class="a11y__list">
+        <li>Semantic landmarks: header, nav, main, footer</li>
+        <li>Keyboard order matches visual order; visible focus</li>
+        <li>Alt text for images; labels for inputs</li>
+        <li>Color contrast passes WCAG AA</li>
+        <li>Respects prefers-reduced-motion</li>
+      </ul>
+
+      <!-- Example form with labels and inline validation area -->
+      <form class="a11y__form" novalidate aria-labelledby="form-title">
+        <h4 id="form-title">Feedback</h4>
+        <div class="field">
+          <label for="fb-name">Name</label>
+          <input id="fb-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="fb-msg">Message</label>
+          <textarea id="fb-msg" name="message" rows="3" required></textarea>
+        </div>
+        <div class="actions">
+          <button class="btn btn--primary" type="submit">Send</button>
+          <p class="status" role="status" aria-live="polite" hidden>Thanks for the feedback!</p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="perf-footer" role="contentinfo" aria-label="Site footer">
+    <small>© 2025 Pizza Brand</small>
+  </footer>
+
+  <!-- Defer noncritical scripts -->
+  <script defer src="noncritical.js"></script>
+  <script>
+    // Example: simple client-side validation without blocking main thread
+    document.querySelector('.a11y__form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      if (!form.checkValidity()) {
+        form.querySelector(':invalid')?.focus();
+        return;
+      }
+      const status = form.querySelector('.status');
+      status.hidden = false;
+      status.textContent = "Thanks for the feedback!";
+    });
+  </script>
+
+  <section class="convert" aria-labelledby="conv-title">
+    <header class="hero">
+      <div class="hero__copy">
+        <h2 id="conv-title" class="hero__title">Order in seconds. Save every time.</h2>
+        <p class="hero__sub">Fast checkout, weekly deals, and rewards on every bite.</p>
+        <a class="btn btn--primary" href="#order" data-test="cta-top">Order Now</a>
+      </div>
+
+      
+    </header>
+
+    <!-- Value props -->
+    <section class="props" aria-labelledby="props-title">
+      <h3 id="props-title" class="sec__title">Why this converts</h3>
+      <ul class="props__list">
+        <li>Clear, benefit‑first headline and subhead</li>
+        <li>Primary CTA above the fold and after content</li>
+        <li>Low‑friction form and fast checkout</li>
+        <li>Visible trust badges and recent reviews</li>
+      </ul>
+    </section>
+
+    <!-- Social proof + trust -->
+    <section class="proof" aria-labelledby="proof-title">
+      <h3 id="proof-title" class="sec__title">Trusted by pizza lovers</h3>
+
+      <ul class="logos" role="list" aria-label="Trusted by">
+        <li><img src="images/trust/ssl.svg" alt="SSL Secured"></li>
+        <li><img src="images/trust/visa.svg" alt="Visa"></li>
+        <li><img src="images/trust/mastercard.svg" alt="Mastercard"></li>
+        <li><img src="images/trust/google.svg" alt="Google Reviews 4.8"></li>
+      </ul>
+
+      <ul class="testis" role="list">
+        <li class="t">
+          <blockquote>“Checkout took 30 seconds. Deals auto‑applied!”</blockquote>
+          <div class="t__meta">Ana • Verified</div>
+        </li>
+        <li class="t">
+          <blockquote>“Family Feast saved us 25% — super value.”</blockquote>
+          <div class="t__meta">Rahul • Verified</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Low-friction capture -->
+    <section class="capture" aria-labelledby="cap-title">
+      <h3 id="cap-title" class="sec__title">Get a 10% off code</h3>
+      <form class="form" novalidate data-test="ab-form">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="email" required>
+        </div>
+        <button class="btn btn--primary" type="submit" data-test="cta-form">Get Code</button>
+        <p class="status" role="status" aria-live="polite" hidden>Code sent! Check the inbox.</p>
+      </form>
+      <p class="microcopy">No spam. Unsubscribe anytime.</p>
+    </section>
+
+    <!-- Repeat CTA after proof/copy -->
+    <div class="cta-row">
+      <a class="btn btn--primary" href="#order" data-test="cta-bottom">Order Now</a>
+      <a class="btn btn--ghost" href="#menu">View Menu</a>
+    </div>
+  </section>
+
+  <script>
+    // Simple form handler to show success without reload
+    document.querySelector('.form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.currentTarget;
+      if (!f.checkValidity()) { f.querySelector(':invalid')?.focus(); return; }
+      const s = f.querySelector('.status'); s.hidden = false; s.textContent = "Code sent! Check the inbox.";
+      f.reset();
+    });
+  </script>
+
+    
+
+<!-- Link example in your top bar -->
+<nav class="nav" aria-label="Primary">
+  <a class="nav__link" href="#reserve">Reserve</a>
+  <!-- ... -->
+</nav>
+
+<!-- Reserve section -->
+<section id="reserve" class="reserve" aria-labelledby="reserve-title">
+  <div class="reserve__header">
+    <h2 id="reserve-title" class="reserve__title">Reserve a Table</h2>
+    <p class="reserve__sub">Book dine‑in in seconds. Instant confirmation via SMS or email.</p>
+  </div>
+
+  <div class="reserve__grid">
+    <!-- Form -->
+    <form class="form" action="#" method="post" novalidate>
+      <fieldset class="form__group">
+        <legend class="form__legend">Party &amp; time</legend>
+
+        <div class="field">
+          <label for="party">Party size</label>
+          <select id="party" name="party" required>
+            <option value="">Select</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="when">Date &amp; time</label>
+          <input id="when" name="when" type="datetime-local" required
+                 min="2025-08-01T08:00" max="2026-12-31T23:00" />
+          <small class="help">Open hours: 10:00–23:00. For large parties, call us.</small>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__group">
+        <legend class="form__legend">Contact</legend>
+
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email (optional)</label>
+          <input id="email" name="email" type="email" autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label for="note">Special requests (optional)</label>
+          <textarea id="note" name="note" rows="3" placeholder="Allergies, high chair, occasion…"></textarea>
+        </div>
+      </fieldset>
+
+      <div class="form__actions">
+        <button type="submit" class="btn btn--primary">Reserve now</button>
+        <button type="reset" class="btn btn--ghost">Clear</button>
+      </div>
+
+      <p class="policy">By reserving, consent is given to be contacted about the booking. No spam.</p>
+      <p class="status" role="status" aria-live="polite" hidden>Thanks! Your table is reserved.</p>
+    </form>
+
+    <!-- Map/Photo panel -->
+    <aside class="panel" aria-label="Location and ambience">
+      <div class="panel__media">
+        <picture>
+          <source type="image/avif" srcset="images/pizza-5501065_1280.jpg 640w, images/pizza-5501065_1280.jpg 960w, images/pizza-5501065_1280.jpg 1280w">
+          <source type="image/webp" srcset="images/pizza-5501065_1280.jpg 640w, images/pizza-5501065_1280.jpg 960w, images/pizza-5501065_1280.jpg 1280w">
+          <img
+            src="images/pizza-5501065_1280.jpg"
+            srcset="images/pizza-5501065_1280.jpg 640w, images/pizza-5501065_1280.jpg 960w, images/pizza-5501065_1280.jpg 1280w"
+            sizes="(max-width: 900px) 100vw, 520px"
+            alt="Cozy dine‑in seating with warm lighting"
+            loading="lazy" decoding="async" />
+        </picture>
+      </div>
+
+      <div class="panel__content">
+        <h3 class="panel__title">Find us</h3>
+        <p class="panel__text">123 Main Street, Downtown. Parking and wheelchair access available.</p>
+        <div class="panel__thumb">
+          <picture>
+            <source type="image/avif" srcset="images/food-3245765_1280.jpg 480w, images/food-3245765_1280.jpg 640w">
+            <source type="image/webp" srcset="images/food-3245765_1280.jpg 480w, images/food-3245765_1280.jpg 640w">
+            <img
+              src="images/food-3245765_1280.jpg"
+              srcset="images/food-3245765_1280.jpg 480w, images/food-3245765_1280.jpg 640w"
+              sizes="(max-width: 900px) 100vw, 480px"
+              alt="Map thumbnail to the restaurant"
+              loading="lazy" decoding="async" />
+          </picture>
+        </div>
+        <div class="panel__links">
+          <a class="btn btn--ghost" href="https://www.google.com/maps?q=Pizza+Hut" target="_blank" rel="noopener">Open in Maps</a>
+          <a class="btn btn--ghost" href="tel:+918445675573">Call</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Optional JS to show status without page reload -->
+<script>
+  document.querySelector('#reserve .form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (!form.checkValidity()) { form.querySelector(':invalid')?.focus(); return; }
+    const status = form.querySelector('.status');
+    status.hidden = false;
+    status.textContent = "Thanks! Your table is reserved.";
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,208 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Account — Login & Register</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <section id="account" class="account" aria-labelledby="account-title">
+  <div class="account__header">
+    <h2 id="account-title" class="account__title">Welcome back</h2>
+    <p class="account__sub">Log in to track orders and earn rewards, or create an account.</p>
+  </div>
+
+  <div class="account__grid">
+    <!-- Login (phone + password) -->
+    <form class="card form" id="loginForm" novalidate aria-labelledby="login-title">
+      <h3 id="login-title">Login</h3>
+
+      <div class="field">
+        <label for="login-phone">Mobile number</label>
+        <input id="login-phone"
+               name="phone"
+               type="tel"
+               inputmode="tel"
+               autocomplete="username"
+               pattern="^[0-9+\-\s]{7,15}$"
+               required />
+        <small class="help">Enter a valid phone number (7–15 digits).</small>
+      </div>
+
+      <div class="field">
+        <label for="login-password">Password</label>
+        <div class="pass">
+          <input id="login-password"
+                 name="password"
+                 type="password"
+                 autocomplete="current-password"
+                 spellcheck="false"
+                 required />
+          <button type="button"
+                  class="pass__toggle"
+                  aria-controls="login-password"
+                  aria-pressed="false"
+                  aria-label="Show password">👁️</button>
+        </div>
+        <small id="login-pass-req" class="help">At least 8 characters.</small>
+      </div>
+
+      <div class="row">
+        <label class="check">
+          <input type="checkbox" name="remember" />
+          <span>Remember me</span>
+        </label>
+        <a class="link" href="#forgot">Forgot password?</a>
+      </div>
+
+      <button class="btn btn--primary" type="submit">Sign in</button>
+      <p class="status" role="status" aria-live="polite" hidden>Signed in. Redirecting…</p>
+    </form>
+
+    <!-- Register (name + phone + password) -->
+    <form class="card form" id="registerForm" novalidate aria-labelledby="register-title">
+      <h3 id="register-title">Create account</h3>
+
+      <div class="field">
+        <label for="reg-name">Full name</label>
+        <input id="reg-name" name="name" type="text" autocomplete="name" required />
+      </div>
+
+      <div class="field">
+        <label for="reg-phone">Mobile number</label>
+        <input id="reg-phone"
+               name="phone"
+               type="tel"
+               inputmode="tel"
+               autocomplete="tel"
+               pattern="^[0-9+\-\s]{7,15}$"
+               required />
+      </div>
+
+      <div class="field">
+        <label for="reg-password">Password</label>
+        <div class="pass">
+          <input id="reg-password"
+                 name="password"
+                 type="password"
+                 autocomplete="new-password"
+                 spellcheck="false"
+                 required
+                 aria-describedby="reg-pass-req" />
+          <button type="button"
+                  class="pass__toggle"
+                  aria-controls="reg-password"
+                  aria-pressed="false"
+                  aria-label="Show password">👁️</button>
+        </div>
+        <small id="reg-pass-req" class="help">8+ chars, mix of letters & numbers recommended.</small>
+      </div>
+
+      <div class="row">
+        <label class="check">
+          <input type="checkbox" name="terms" required />
+          <span>I agree to the Terms & Privacy</span>
+        </label>
+      </div>
+
+      <button class="btn btn--primary" type="submit">Create account</button>
+      <p class="status" role="status" aria-live="polite" hidden>Account created. Check SMS/email to verify.</p>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Accessible show/hide password
+  document.querySelectorAll('.pass__toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = document.getElementById(btn.getAttribute('aria-controls'));
+      const show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      btn.setAttribute('aria-pressed', String(show));
+      btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    });
+  });
+
+  // Minimal submit handlers with inline validation
+  function handleSubmit(formId, successText) {
+    const form = document.getElementById(formId);
+    const status = form.querySelector('.status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.querySelector(':invalid')?.focus();
+        return;
+      }
+      // TODO: replace with real API call (server must validate again)
+      status.hidden = false;
+      status.textContent = successText;
+      setTimeout(()=> status.hidden = true, 4000);
+    });
+  }
+  handleSubmit('loginForm', 'Signed in. Redirecting…');
+  handleSubmit('registerForm', 'Account created. Check SMS/email to verify.');
+
+  
+</script>
+
+<script>
+  // This function connects a form to a backend endpoint
+  function handleSubmit(formId, endpoint) {
+    const form = document.getElementById(formId);
+    const status = form.querySelector('.status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Stop the browser from reloading the page
+
+      if (!form.checkValidity()) {
+        form.querySelector(':invalid')?.focus();
+        return;
+      }
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      status.textContent = 'Processing...';
+      status.hidden = false;
+      
+      try {
+        // THIS IS THE CONNECTION
+        // It sends the form data to your backend script (e.g., 'login.php')
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json(); // Get the response from the backend
+
+        // Display the backend's message (e.g., "Login successful")
+        status.textContent = result.message;
+
+        if (result.status === 'success') {
+          form.reset();
+        }
+
+      } catch (error) {
+        console.error('Connection Error:', error);
+        status.textContent = 'Could not connect to the server.';
+      }
+    });
+  }
+
+  // --- Initialize the connection for both forms ---
+
+  // For the PHP backend:
+  handleSubmit('loginForm', 'login.php');
+  handleSubmit('registerForm', 'register.php');
+  
+  // If you were using the Node.js backend, it would be:
+  // handleSubmit('loginForm', 'http://localhost:3000/login');
+  // handleSubmit('registerForm', 'http://localhost:3000/register');
+
+</script>
+</body>
+</html>
